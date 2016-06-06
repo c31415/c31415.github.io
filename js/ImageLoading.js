@@ -1,5 +1,10 @@
 var warriorPic = document.createElement("img");
-var monsterPic = document.createElement("img");
+var monsterPic1_0 = document.createElement("img");
+var monsterPic1_1 = document.createElement("img");
+var monsterPic2_0 = document.createElement("img");
+var monsterPic2_1 = document.createElement("img");
+
+var startScreen = document.createElement("img");
 var worldPics = [];
 
 var picsToLoad = 0;
@@ -23,11 +28,18 @@ function loadImageForWorldCode(worldCode, fileName) {
 function loadImages() {
 	var imageList = [
 		{varName: warriorPic, theFile: "warrior.png"},
-		{varName: monsterPic, theFile: "monster.png"},
+		{varName: monsterPic1_0, theFile: "monster1_0.png"},
+		{varName: monsterPic1_1, theFile: "monster1_1.png"},
+		{varName: monsterPic2_0, theFile: "monster2_0.png"},
+		{varName: monsterPic2_1, theFile: "monster2_1.png"},
+		{varName: startScreen, theFile: "Luke.png"},
 		
 		{worldType: WORLD_ROAD, theFile: "road.png"},
 		{worldType: WORLD_WALL, theFile: "wall.png"},
-		{worldType: WORLD_FINISH, theFile: "world_goal.png"},
+		{worldType: WORLD_FINISH, theFile: "wife_goal.png"},
+		{worldType: WORLD_RING, theFile: "ring_goal.png"},
+		{worldType: WORLD_DRESS, theFile: "dress_goal.png"},
+		{worldType: WORLD_CAKE, theFile: "cake_goal.png"},
 		{worldType: WORLD_KEY, theFile: "world_key.png"},
 		{worldType: WORLD_DOOR, theFile: "world_door.png"}
 		];

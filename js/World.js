@@ -8,7 +8,11 @@ const WORLD_ROAD = 0;
 const WORLD_WALL = 1;
 const WORLD_PLAYERSTART = 2;
 const WORLD_MONSTERSTART = 9;
+const WORLD_MONSTERSTART2 = 8;
 const WORLD_FINISH = 3;
+const WORLD_RING = 6;
+const WORLD_DRESS = 7;
+const WORLD_CAKE = 10;
 const WORLD_KEY = 4;
 const WORLD_DOOR = 5;
 
@@ -17,7 +21,10 @@ var worldGrid = [];
 function tileTypeHasTransparency(checkTileType) {
 	return( checkTileType == WORLD_FINISH ||
 			checkTileType == WORLD_KEY ||
-			checkTileType == WORLD_DOOR );
+			checkTileType == WORLD_DOOR ||
+			checkTileType == WORLD_RING ||
+			checkTileType == WORLD_DRESS ||
+			checkTileType == WORLD_CAKE );
 }	
 				 
 function returnTileTypeAtColRow(col, row) {
@@ -31,25 +38,25 @@ function returnTileTypeAtColRow(col, row) {
 }
 
 
-function warriorWorldHandling(whichWarrior) {
-	var warriorWorldCol = Math.floor(whichWarrior.x / WORLD_W);
-	var warriorWorldRow = Math.floor(whichWarrior.y / WORLD_H);
-	var worldIndexUnderWarrior = rowColToArrayIndex(warriorWorldCol, warriorWorldRow);
+// function warriorWorldHandling(whichWarrior) {
+	// var warriorWorldCol = Math.floor(whichWarrior.x / WORLD_W);
+	// var warriorWorldRow = Math.floor(whichWarrior.y / WORLD_H);
+	// var worldIndexUnderWarrior = rowColToArrayIndex(warriorWorldCol, warriorWorldRow);
 
-	if(warriorWorldCol >= 0 && warriorWorldCol < WORLD_COLS &&
-		warriorWorldRow >= 0 && warriorWorldRow < WORLD_ROWS) {
+	// if(warriorWorldCol >= 0 && warriorWorldCol < WORLD_COLS &&
+		// warriorWorldRow >= 0 && warriorWorldRow < WORLD_ROWS) {
 		
-		var tileHere = returnTileTypeAtColRow( warriorWorldCol,warriorWorldRow );
+		// var tileHere = returnTileTypeAtColRow( warriorWorldCol,warriorWorldRow );
 		
-		if(tileHere == WORLD_FINISH) {
-			console.log(whichWarrior.name + " WINS!");
-			loadLevel(levelOne);
-		}else if(tileHere != WORLD_ROAD) {
-			console.log("Not on road");
-			whichWarrior.canMove = false;
-		} // end of world found
-	} // end of valid col and row
-} // end of warriorWorldHandling func
+		// if(tileHere == WORLD_FINISH) {
+			// console.log(whichWarrior.name + " WINS!");
+			// loadLevel(levelOne);
+		// }else if(tileHere != WORLD_ROAD) {
+			// console.log("Not on road");
+			// whichWarrior.canMove = false;
+		// } // end of world found
+	// } // end of valid col and row
+// } // end of warriorWorldHandling func
 
 function getWorldIndexFromPixelCoord(atX, atY) {
 	var warriorWorldCol = Math.floor(atX / WORLD_W);

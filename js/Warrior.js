@@ -1,4 +1,5 @@
 const WALKING_SPEED = 7.0;
+var warriorBuffer = 20;
 
 function warriorClass() {
 	
@@ -6,6 +7,7 @@ function warriorClass() {
 	this.y = 0;
 	this.ang = 0;
 	this.myWarriorPic; 
+	this.warriorBuffer = 20;
 	this.name = "Untitled Warrior";
 	this.level = 0;
 	
@@ -69,19 +71,23 @@ function warriorClass() {
 				this.x = nextX;
 				this.y = nextY;
 				break;
+			case WORLD_RING:
+			case WORLD_DRESS:
+			case WORLD_CAKE:
 			case WORLD_FINISH:
 				this.level++;
 				if(this.level < levelArray.length) {
 					loadLevel(levelArray[this.level]);
 				}else{
 					this.level = 0;
+					showStartScreen = true;
 					loadLevel(levelArray[0]);
 				}
-				
 				break;
 			case WORLD_KEY:
 				this.keysHeld++;
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
+				audio_meow.play();
 				break;
 			case WORLD_DOOR:
 				if (this.keysHeld > 0){
