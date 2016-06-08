@@ -1,3 +1,5 @@
+var greenWarrior = new warriorClass();
+
 const WALKING_SPEED = 7.0;
 var warriorBuffer = 20;
 
@@ -87,7 +89,7 @@ function warriorClass() {
 			case WORLD_KEY:
 				this.keysHeld++;
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
-				audio_meow.play();
+				//audio_meow.play();
 				break;
 			case WORLD_DOOR:
 				if (this.keysHeld > 0){

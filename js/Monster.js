@@ -1,5 +1,9 @@
 const MONSTER_WALKING_SPEED_X = 6.0;
 const MONSTER_WALKING_SPEED_Y = 6.0;
+
+var greenMonster = new monsterClass();
+var greenMonster2 = new monsterClass();
+
 //var monsterDirection = 1;
 //var monsterBuffer = 20;
 

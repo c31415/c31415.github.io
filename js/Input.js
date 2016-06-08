@@ -15,6 +15,7 @@ var mouseY = 0;
 
 function setupInput() {
 	canvas.addEventListener('mousemove', updateMousePos);
+	canvas.addEventListener('mousedown', handleMouseClick);
 		
 	document.addEventListener('keydown', keyPressed);
 	document.addEventListener('keyup', keyReleased);
@@ -63,4 +64,11 @@ function keyReleased(evt) {
 	//console.log("Key released: " + evt.keyCode);
 	keySet(evt, greenWarrior,false);
 	//keySet(evt, yellowWarrior,false);
+}
+
+function handleMouseClick() {
+	if (showStartScreen) {
+		showStartScreen = false;
+		loadLevel(levelArray[0]);
+	}
 }

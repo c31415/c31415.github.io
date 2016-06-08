@@ -24,3 +24,7 @@ function colorText(showWords, textX,textY, fillColor) {
 	canvasContext.fillStyle = fillColor;
 	canvasContext.fillText(showWords, textX, textY);
 }
+
+function clearScreen() {
+	colorRect(0,0, canvas.width,canvas.height, 'black'); // clear screen
+}
