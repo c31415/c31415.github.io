@@ -1,5 +1,7 @@
 var canvas, canvasContext;
 var showStartScreen = true;
+var showGameOverScreen = false;
+var showGameWonScreen = false;
 
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
@@ -33,6 +35,11 @@ function audioAll() {
 		audio_end.stop();
 		return;
 	}
+	if(showGameOverScreen) {
+		audio_game.stop();
+		audio_end.stop();
+		return;
+	}
 	
 	if (greenWarrior.level == levelArray.length-1) {
 		audio_game.stop();
@@ -43,7 +50,7 @@ function audioAll() {
 }
 
 function moveAll() {
-	if(showStartScreen) {
+	if(showStartScreen || showGameOverScreen || showGameWonScreen) {
 		return;
 	}
 	greenWarrior.move();
@@ -58,6 +65,24 @@ function drawAll() {
 		drawBitmapCenteredWithRotation(startScreen, 400, 300, 0);
 		return;
 	}
+	if (showGameOverScreen) {
+		//clearScreen();
+		
+		canvasContext.font="30px Verdana";
+		// Create gradient
+		var gradient=canvasContext.createLinearGradient(0,0,canvas.width,0);
+		gradient.addColorStop("0","magenta");
+		gradient.addColorStop("0.5","blue");
+		gradient.addColorStop("1.0","red");
+		// Fill with gradient
+		canvasContext.fillStyle=gradient;
+		canvasContext.fillText("Don't Give up! Try again!",280,300);
+		return;
+	}
+	if (showGameWonScreen) {
+		return;
+	}
+	
 	drawWorlds();
 	//yellowWarrior.draw();
 	greenWarrior.draw();

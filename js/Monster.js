@@ -118,9 +118,10 @@ function monsterClass() {
 		if (this.x > greenWarrior.x-20 && this.x < greenWarrior.x+20 &&
 		    this.y > greenWarrior.y-20 && this.y < greenWarrior.y+20) {
 			console.log("hit");
+			clearScreen();
 			greenWarrior.level = 0;
-			showStartScreen = true;
-			setTimeout(loadLevel(levelOne), 3000);
+			//showStartScreen = true;
+			showGameOverScreen = true;
 		}
 	}
 

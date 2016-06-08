@@ -69,7 +69,14 @@ var levelArray = [levelOne, levelTwo, levelThree, levelFour];
 function loadLevel(whichLevel) {
 	if(showStartScreen) {
 		clearScreen();
-		colorText("Click to continue", 400, 500, 'white');
+		colorText("Click mouse to continue", 370, 500, 'white');
+		colorText("Use arrow keys to move up, down, left and right", 320, 515, 'white');
+		return;
+	}
+	if(showGameOverScreen) {
+		clearScreen();
+		colorText("Click mouse to continue", 370, 500, 'white');
+		colorText("Use arrow keys to move up, down, left and right", 320, 515, 'white');
 		return;
 	}
 	worldGrid = whichLevel.slice();
