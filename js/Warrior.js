@@ -2,6 +2,7 @@ var greenWarrior = new warriorClass();
 
 const WALKING_SPEED = 7.0;
 var warriorBuffer = 20;
+var walkIntoTileIndex;
 
 function warriorClass() {
 	
@@ -55,28 +56,36 @@ function warriorClass() {
 	
 		if(this.keyHeld_Up) {
 			nextY -= WALKING_SPEED;
+			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY-this.warriorBuffer);
 		}
 		if(this.keyHeld_Down) {
 			nextY += WALKING_SPEED;
+			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY+this.warriorBuffer);
 		}
 		if(this.keyHeld_TurnLeft) {
 			nextX -= WALKING_SPEED;
+			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX-this.warriorBuffer, nextY);
 		}
 		if(this.keyHeld_TurnRight) {
 			nextX += WALKING_SPEED;
+			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX+this.warriorBuffer, nextY);
 		}
 
-		var walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY);
-		
+		//var walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY);
+
 		switch (walkIntoTileIndex) {
 			case WORLD_ROAD:
 				this.x = nextX;
 				this.y = nextY;
 				break;
+			case WORLD_FINISH:
+				this.level = 0;
+				showGameWonScreen = true;
+				loadLevel(levelArray[0]);
+				break;
 			case WORLD_RING:
 			case WORLD_DRESS:
 			case WORLD_CAKE:
-			case WORLD_FINISH:
 				this.level++;
 				if(this.level < levelArray.length) {
 					loadLevel(levelArray[this.level]);
@@ -87,14 +96,19 @@ function warriorClass() {
 				}
 				break;
 			case WORLD_KEY:
+				this.x = nextX;
+				this.y = nextY;
 				this.keysHeld++;
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
-				//audio_meow.play();
+				audio_meow.play();
 				break;
 			case WORLD_DOOR:
 				if (this.keysHeld > 0){
+				this.x = nextX;
+				this.y = nextY;
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
 				this.keysHeld--;
+				audio_door.play();
 				}
 				break;
 			default:

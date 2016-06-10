@@ -5,6 +5,7 @@ var monsterPic2_0 = document.createElement("img");
 var monsterPic2_1 = document.createElement("img");
 
 var startScreen = document.createElement("img");
+var winScreen = document.createElement("img");
 var worldPics = [];
 
 var picsToLoad = 0;
@@ -33,6 +34,7 @@ function loadImages() {
 		{varName: monsterPic2_0, theFile: "monster2_0.png"},
 		{varName: monsterPic2_1, theFile: "monster2_1.png"},
 		{varName: startScreen, theFile: "Luke.png"},
+		{varName: winScreen, theFile: "end_game.png"},
 		
 		{worldType: WORLD_ROAD, theFile: "road.png"},
 		{worldType: WORLD_WALL, theFile: "wall.png"},

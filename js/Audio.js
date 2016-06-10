@@ -1,6 +1,8 @@
-var audio_game = new sound('images/02-overworld.mp3');
-var audio_end = new sound('images/10-ending.mp3');
-var audio_meow = new sound('images/Meow.ogg');
+var audio_game = new sound('sounds/Fantasy Choir 1.wav');
+var audio_end = new sound('sounds/10-ending.mp3');
+var audio_win = new sound('sounds/Green Hills.mp3');
+var audio_meow = new sound('sounds/Meow.ogg');
+var audio_door = new sound('sounds/door.wav');
 
 
 function sound(src) {

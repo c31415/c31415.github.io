@@ -67,9 +67,10 @@ function keyReleased(evt) {
 }
 
 function handleMouseClick() {
-	if (showStartScreen || showGameOverScreen) {
+	if (showStartScreen || showGameOverScreen || showGameWonScreen) {
 		showStartScreen = false;
 		showGameOverScreen = false;
+		showGameWonScreen = false;
 		loadLevel(levelArray[0]);
 	}
 }

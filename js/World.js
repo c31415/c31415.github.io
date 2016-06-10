@@ -38,26 +38,6 @@ function returnTileTypeAtColRow(col, row) {
 }
 
 
-// function warriorWorldHandling(whichWarrior) {
-	// var warriorWorldCol = Math.floor(whichWarrior.x / WORLD_W);
-	// var warriorWorldRow = Math.floor(whichWarrior.y / WORLD_H);
-	// var worldIndexUnderWarrior = rowColToArrayIndex(warriorWorldCol, warriorWorldRow);
-
-	// if(warriorWorldCol >= 0 && warriorWorldCol < WORLD_COLS &&
-		// warriorWorldRow >= 0 && warriorWorldRow < WORLD_ROWS) {
-		
-		// var tileHere = returnTileTypeAtColRow( warriorWorldCol,warriorWorldRow );
-		
-		// if(tileHere == WORLD_FINISH) {
-			// console.log(whichWarrior.name + " WINS!");
-			// loadLevel(levelOne);
-		// }else if(tileHere != WORLD_ROAD) {
-			// console.log("Not on road");
-			// whichWarrior.canMove = false;
-		// } // end of world found
-	// } // end of valid col and row
-// } // end of warriorWorldHandling func
-
 function getWorldIndexFromPixelCoord(atX, atY) {
 	var warriorWorldCol = Math.floor(atX / WORLD_W);
 	var warriorWorldRow = Math.floor(atY / WORLD_H);

@@ -33,18 +33,28 @@ function audioAll() {
 	if(showStartScreen) {
 		audio_game.stop();
 		audio_end.stop();
+		audio_win.stop();
 		return;
 	}
 	if(showGameOverScreen) {
 		audio_game.stop();
 		audio_end.stop();
+		audio_win.stop();
+		return;
+	}
+	if(showGameWonScreen) {
+		audio_game.stop();
+		audio_end.stop();
+		audio_win.play();
 		return;
 	}
 	
 	if (greenWarrior.level == levelArray.length-1) {
 		audio_game.stop();
+		audio_win.stop();
 		audio_end.play();
 	}else{
+		audio_win.stop();
 		audio_game.play();
 	}
 }
@@ -63,6 +73,10 @@ function moveAll() {
 function drawAll() {
 	if(showStartScreen) {
 		drawBitmapCenteredWithRotation(startScreen, 400, 300, 0);
+		return;
+	}
+	if(showGameWonScreen) {
+		drawBitmapCenteredWithRotation(winScreen, 400, 300, 0);
 		return;
 	}
 	if (showGameOverScreen) {

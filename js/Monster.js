@@ -19,22 +19,6 @@ function monsterClass() {
 	this.monsterDirection_y = 0;
 	this.monsterBuffer = 20;
 	
-	//this.keyHeld_Up = false;
-	//this.keyHeld_Down = false;
-	//this.keyHeld_TurnLeft = false;
-	//this.keyHeld_TurnRight = false;
-
-	//this.controlKeyUp;
-	//this.controlKeyRight;
-	//this.controlKeyDown;
-	//this.controlKeyLeft;
-	
-	//this.setupInput = function(upKey, rightKey, downKey, leftKey) {
-	//	this.controlKeyUp = upKey;
-	//	this.controlKeyRight = rightKey;
-	//	this.controlKeyDown = downKey;
-	//	this.controlKeyLeft = leftKey;
-	//}
 	
 	this.reset = function(whichImage, monsterName, x_speed, y_speed) {
 		this.name = monsterName;
@@ -80,29 +64,29 @@ function monsterClass() {
 				this.monsterBuffer = -this.monsterBuffer;
 				break;
 			case WORLD_WALL:
-				this.monsterDirection_y = -this.monsterDirection_y;
-				this.monsterDirection_x = -this.monsterDirection_x;
-				//console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
-				this.y +=MONSTER_WALKING_SPEED_Y * this.monsterDirection_y;
-				this.x +=MONSTER_WALKING_SPEED_X * this.monsterDirection_x;
-				this.monsterBuffer = -this.monsterBuffer;
-				break;
+				//this.monsterDirection_y = -this.monsterDirection_y;
+				//this.monsterDirection_x = -this.monsterDirection_x;
+				////console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
+				//this.y +=MONSTER_WALKING_SPEED_Y * this.monsterDirection_y;
+				//this.x +=MONSTER_WALKING_SPEED_X * this.monsterDirection_x;
+				//this.monsterBuffer = -this.monsterBuffer;
+				//break;
 			case WORLD_FINISH:
-				this.monsterDirection_y = -this.monsterDirection_y;
-				this.monsterDirection_x = -this.monsterDirection_x;
-				//console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
-				this.y +=MONSTER_WALKING_SPEED_Y * this.monsterDirection_y;
-				this.x +=MONSTER_WALKING_SPEED_X * this.monsterDirection_x;
-				this.monsterBuffer = -this.monsterBuffer;
-				break;
+				//this.monsterDirection_y = -this.monsterDirection_y;
+				//this.monsterDirection_x = -this.monsterDirection_x;
+				////console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
+				//this.y +=MONSTER_WALKING_SPEED_Y * this.monsterDirection_y;
+				//this.x +=MONSTER_WALKING_SPEED_X * this.monsterDirection_x;
+				//this.monsterBuffer = -this.monsterBuffer;
+				//break;
 			case WORLD_KEY:
-				this.monsterDirection_y = -this.monsterDirection_y;
-				this.monsterDirection_x = -this.monsterDirection_x;
-				//console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
-				this.y +=MONSTER_WALKING_SPEED_Y * this.monsterDirection_y;
-				this.x +=MONSTER_WALKING_SPEED_X * this.monsterDirection_x;
-				this.monsterBuffer = -this.monsterBuffer;
-				break;
+				//this.monsterDirection_y = -this.monsterDirection_y;
+				//this.monsterDirection_x = -this.monsterDirection_x;
+				////console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
+				//this.y +=MONSTER_WALKING_SPEED_Y * this.monsterDirection_y;
+				//this.x +=MONSTER_WALKING_SPEED_X * this.monsterDirection_x;
+				//this.monsterBuffer = -this.monsterBuffer;
+				//break;
 			case WORLD_DOOR:
 				this.monsterDirection_y = -this.monsterDirection_y;
 				this.monsterDirection_x = -this.monsterDirection_x;
