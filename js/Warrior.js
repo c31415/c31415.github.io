@@ -104,10 +104,10 @@ function warriorClass() {
 				break;
 			case WORLD_DOOR:
 				if (this.keysHeld > 0){
-				this.x = nextX;
-				this.y = nextY;
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
 				this.keysHeld--;
+				this.x = nextX;
+				this.y = nextY;
 				audio_door.play();
 				}
 				break;
