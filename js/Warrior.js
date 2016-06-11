@@ -56,22 +56,22 @@ function warriorClass() {
 	
 		if(this.keyHeld_Up) {
 			nextY -= WALKING_SPEED;
-			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY-this.warriorBuffer);
+			//walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY-this.warriorBuffer);
 		}
 		if(this.keyHeld_Down) {
 			nextY += WALKING_SPEED;
-			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY+this.warriorBuffer);
+			//walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY+this.warriorBuffer);
 		}
 		if(this.keyHeld_TurnLeft) {
 			nextX -= WALKING_SPEED;
-			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX-this.warriorBuffer, nextY);
+			//walkIntoTileIndex = getTileTypeAtPixelCoord(nextX-this.warriorBuffer, nextY);
 		}
 		if(this.keyHeld_TurnRight) {
 			nextX += WALKING_SPEED;
-			walkIntoTileIndex = getTileTypeAtPixelCoord(nextX+this.warriorBuffer, nextY);
+			//walkIntoTileIndex = getTileTypeAtPixelCoord(nextX+this.warriorBuffer, nextY);
 		}
 
-		//var walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY);
+		walkIntoTileIndex = getTileTypeAtPixelCoord(nextX, nextY);
 
 		switch (walkIntoTileIndex) {
 			case WORLD_ROAD:
@@ -105,8 +105,6 @@ function warriorClass() {
 			case WORLD_DOOR:
 				if (this.keysHeld > 0){
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
-				this.x = nextX;
-				this.y = nextY;
 				this.keysHeld--;
 				audio_door.play();
 				}
