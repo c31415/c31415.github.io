@@ -10,7 +10,7 @@ function warriorClass() {
 	this.y = 0;
 	this.ang = 0;
 	this.myWarriorPic; 
-	this.warriorBuffer = 18;
+	this.warriorBuffer = 20;
 	this.name = "Untitled Warrior";
 	this.level = 0;
 	
@@ -78,6 +78,8 @@ function warriorClass() {
 				this.x = nextX;
 				this.y = nextY;
 				break;
+			case WORLD_WALL:
+				break;
 			case WORLD_FINISH:
 				this.level = 0;
 				showGameWonScreen = true;
@@ -104,7 +106,10 @@ function warriorClass() {
 				break;
 			case WORLD_DOOR:
 				if (this.keysHeld > 0){
+				this.x = nextX;
+				this.y = nextY;
 				worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)] = WORLD_ROAD;
+				//console.log(worldGrid[getWorldIndexFromPixelCoord(nextX, nextY)]);
 				this.keysHeld--;
 				audio_door.play();
 				}

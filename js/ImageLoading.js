@@ -4,6 +4,9 @@ var monsterPic1_1 = document.createElement("img");
 var monsterPic2_0 = document.createElement("img");
 var monsterPic2_1 = document.createElement("img");
 
+var monster1_anim = [monsterPic1_0, monsterPic1_1];
+var monster2_anim = [monsterPic2_0, monsterPic2_1];
+
 var startScreen = document.createElement("img");
 var winScreen = document.createElement("img");
 var worldPics = [];

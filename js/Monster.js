@@ -1,5 +1,5 @@
-const MONSTER_WALKING_SPEED_X = 6.0;
-const MONSTER_WALKING_SPEED_Y = 6.0;
+const MONSTER_WALKING_SPEED_X = 7.5;
+const MONSTER_WALKING_SPEED_Y = 7.5;
 
 var greenMonster = new monsterClass();
 var greenMonster2 = new monsterClass();
@@ -12,6 +12,7 @@ function monsterClass() {
 	this.x = 0;
 	this.y = 0;
 	this.ang = 0;
+	this.myMonsterArray;
 	this.myMonsterPic; 
 	this.name = "Untitled Monster";
 	this.level = 0;
@@ -23,7 +24,8 @@ function monsterClass() {
 	this.reset = function(whichImage, monsterName, x_speed, y_speed) {
 		this.name = monsterName;
 		this.keysHeld = 0;
-		this.myMonsterPic = whichImage;
+		this.myMonsterArray = whichImage;
+		this.myMonsterPic = this.myMonsterArray[0];
 		this.monsterDirection_x = x_speed;
 		this.monsterDirection_y = y_speed;
 		
@@ -46,8 +48,6 @@ function monsterClass() {
 		} // end of row for
 	}// end ar warriorReset func
 
-	
-	
 	
 	this.move = function() {
 		
@@ -88,6 +88,11 @@ function monsterClass() {
 				//this.monsterBuffer = -this.monsterBuffer;
 				//break;
 			case WORLD_DOOR:
+				if(this.myMonsterPic == this.myMonsterArray[0]) {
+					this.myMonsterPic = this.myMonsterArray[1];
+				}else{
+					this.myMonsterPic = this.myMonsterArray[0];
+				}
 				this.monsterDirection_y = -this.monsterDirection_y;
 				this.monsterDirection_x = -this.monsterDirection_x;
 				//console.log(MONSTER_WALKING_SPEED* this.monsterDirection);
